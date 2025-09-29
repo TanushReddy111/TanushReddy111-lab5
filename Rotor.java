@@ -16,7 +16,7 @@ public class Rotor {
             rotateOnce();
         }
     }
-    // rotate one position of the rotor with this method
+    // rotate the rotor by one position
     private void rotateOnce() {
         int length = rotorValues.length();
         int last = length - 1;

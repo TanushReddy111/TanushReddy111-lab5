@@ -27,6 +27,7 @@ public class Enigma{
     
     public String encrypt(String message){
         //TODO
+        
     }
 
     

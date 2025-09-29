@@ -21,13 +21,50 @@ public class Enigma{
 
     public String decrypt(String message){        
         //TODO
+        StringBuilder result = new StringBuilder();
+        int i = 0;
+        int len = message.length();
+        while (i < len) {
+            char ch = message.charAt(i);
+
+            int id1 = rotors[2].indexOf(ch);
+            char ch1 = rotors[1].charAt(id1);
+
+            int id2 = rotors[2].indexOf(ch1);
+            char ch2 = rotors[0].charAt(id2);
+
+            result.append(ch2);
+
+            rotate();
+            i = i + 1;
+        }
+        String decrypted = result.toString();
+        return decrypted;
     }
 
 
     
     public String encrypt(String message){
         //TODO
-        
+        StringBuilder result = new StringBuilder();
+        int i = 0;
+        int len = message.length();
+        while (i < len) {
+            char ch = message.charAt(i);
+
+            int id1 = rotors[0].indexOf(ch);
+            char ch1 = rotors[2].charAt(id1);
+
+            int id2 = rotors[1].indexOf(ch1);
+            char ch2 = rotors[2].charAt(id2);
+
+            result.append(ch2);
+
+            rotate();
+            i = i + 1;
+        }
+        String encrypted = result.toString();
+        return encrypted;
     }
 
     

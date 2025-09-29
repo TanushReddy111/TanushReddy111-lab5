@@ -27,11 +27,12 @@ public class Enigma{
         while (i < len) {
             char ch = message.charAt(i);
 
-            int id1 = rotors[2].indexOf(ch);
-            char ch1 = rotors[1].charAt(id1);
-
-            int id2 = rotors[2].indexOf(ch1);
-            char ch2 = rotors[0].charAt(id2);
+            // Outer rotor (rotors[2]) to middle rotor (rotors[1])
+            int idx1 = rotors[2].indexOf(ch);
+            char ch1 = rotors[1].charAt(idx1);
+            // Middle rotor output through outer rotor (rotors[2]) to inner rotor (rotors[0])
+            int idx2 = rotors[2].indexOf(ch1);
+            char ch2 = rotors[0].charAt(idx2);
 
             result.append(ch2);
 
@@ -52,9 +53,10 @@ public class Enigma{
         while (i < len) {
             char ch = message.charAt(i);
 
+            // Inner rotor (rotors[0]) to outer rotor (rotors[2])
             int id1 = rotors[0].indexOf(ch);
             char ch1 = rotors[2].charAt(id1);
-
+            // Outer rotor output through middle rotor (rotors[1]) to outer rotor (rotors[2])
             int id2 = rotors[1].indexOf(ch1);
             char ch2 = rotors[2].charAt(id2);
 

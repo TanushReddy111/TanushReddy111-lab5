@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /**
  * Creates an Enigma machine based on command-line arguments, and reads the message
